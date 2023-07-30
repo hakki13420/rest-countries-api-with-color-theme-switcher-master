@@ -1,0 +1,19 @@
+
+
+header{
+    grid-area: header;
+    @include dflex(row, space-between, center, unset);
+    padding: 1rem 2rem;
+    background-color: $DarkModeText_LightModeElements;
+    border-bottom: 2px solid lightgray;
+
+    .title{
+        color: $LightModeText;
+        font-size: 12px;
+        font-weight: 400;
+    }
+
+    .mode{
+        grid-area: mode;
+    }
+}

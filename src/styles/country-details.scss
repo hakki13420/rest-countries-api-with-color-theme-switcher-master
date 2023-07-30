@@ -1,0 +1,53 @@
+
+.country-details{
+    padding: 2rem;
+    @include dflex(column, unset, unset, 2rem);
+    color: $LightModeText;
+    button{
+        width: 80px;
+    }
+    .country{
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        grid-template-rows: auto auto auto;
+        grid-template-areas: 'left left left top top top top'
+                             'left left left middle middle right right'
+                             'left left left bottom bottom bottom bottom';
+        align-items: center;
+
+        .left{
+            grid-area: left;
+            padding: 0 2rem;
+            img{
+                width: 100%;
+            }
+        }
+        .top{
+            grid-area: top;
+            h1{
+                font-size: 2.5rem;
+            }
+        }
+        .middle{
+            grid-area: middle;
+        }
+        .right{
+            grid-area: right;
+        }
+        .bottom{
+            grid-area: bottom;
+        }
+    }
+
+}
+
+
+
+
+.border-item{
+    border: 1px solid rgb(235, 232, 232);
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    margin-left: 10px;
+    box-shadow: 2px 3px 5px rgb(222, 221, 221);
+}
