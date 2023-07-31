@@ -2,36 +2,70 @@
     @include dflex(row, space-between, center, unset);
     grid-area: barTool;
     padding: 1rem 2rem;
-    background-color: $LightModeBackground;
-
+    //background-color: $LightModeBackground;
+    @include themed {
+        background-color: themeFy("ModeBackground");
+    }
+    @include themed {
+        color: themeFy("ModeText");
+    }
     .search{        
         @include dflex(row, unset, center, 10px);
-        border: 1px solid #ebe5e5;
+        //border: 1px solid #ebe5e5;
         padding: 7px 15px;
         border-radius: 4px;
         min-width: 300px;
         display: flex;    
-        background-color: white;
-        box-shadow: 2px 4px 5px #e0dada;
+        //background-color: white;
+        @include themed {
+            background-color: themeFy("ModeElements");
+        }
+        //box-shadow: 2px 4px 5px #e0dada;
+        @include themed {
+            box-shadow: 2px 4px 5px themeFy("ModeShadow");
+        }
+        @include themed {
+            color: themeFy("ModeText");
+        }
 
         input{
             border: none;
             outline: none;
             padding: 7px 10px;
+            @include themed {
+                background-color: themeFy("ModeElements");
+            }
+            &::placeholder{
+                @include themed {
+                    color: themeFy("ModeText");
+                }
+            }
         }
     }
     .continents{
         width: 250px;
         height: 45px;
-        select{
+        
+
+        select{            
             padding: 7px 15px;
             width: 100%;
             height: 100%;
             border: none;
-            box-shadow: 1px 2px 5px rgb(238, 237, 237);
             outline: none;
             border-radius: 5px;
-
+            
+            @include themed {
+                box-shadow: 2px 4px 5px themeFy("ModeShadow");
+            }    
+    
+            @include themed {
+                background-color: themeFy("ModeElements");
+            }
+            @include themed {
+                color: themeFy("ModeText");
+            }
+            
             option{
                 margin-top: 20px;
             }

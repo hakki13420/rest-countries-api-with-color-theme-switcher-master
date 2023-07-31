@@ -1,9 +1,13 @@
 
 
 main{
-    background-color: $LightModeBackground;
+    //background-color: $LightModeBackground;
+    @include themed {
+        background-color: themeFy("ModeBackground");
+    }
     grid-area: main;
     padding: 1rem 2rem;
+    min-height: 100vh;
     
     .countries{
         display: grid;
@@ -14,11 +18,16 @@ main{
         justify-items: center;
         
         .link{
-            color: $LightModeText;            
+            @include themed {
+                color: themeFy("ModeText");
+            } 
         }
         
         .country{
-            background-color: white;
+            //background-color: white;
+            @include themed {
+                background-color: themeFy("ModeElements");
+            }            
             border-radius: 10px;
             img{
                border-radius: 10px 10px 0 0;

@@ -4,16 +4,37 @@ header{
     grid-area: header;
     @include dflex(row, space-between, center, unset);
     padding: 1rem 2rem;
-    background-color: $DarkModeText_LightModeElements;
-    border-bottom: 2px solid lightgray;
+    //background-color: $DarkModeText_LightModeElements;
+    @include themed {
+        background-color: themeFy("ModeHeaderBackground");
+    }
+    @include themed {
+        color: themeFy("ModeText");
+    }
+    @include themed {
+        border-bottom: 2px solid themeFy("ModeHeaderBorder");;
+    }
 
     .title{
-        color: $LightModeText;
+        //color: $LightModeText;
         font-size: 12px;
         font-weight: 400;
     }
 
     .mode{
         grid-area: mode;
+        @include dflex(row, unset, center, 10px);
+        @include cursorTransition(color);
+        
+
+        .icon-mode{
+            @include themed {
+                color:themeFy("ModeBackground");;
+            }
+        }
+        span{
+            font-size: 0.8rem;
+        }
+
     }
 }

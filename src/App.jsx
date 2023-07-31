@@ -1,17 +1,21 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import './App.css'
 import BarTools from './components/BarTools'
 import Header from './components/Header'
 import Layout from './components/Layout'
 import Main from './components/Main'
 import axios from 'axios'
+import { countriesContext } from './context/countriesContext'
 
 function App () {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
   const [continent, setContinent] = useState('')
 
-  console.log('continent select', continent)
+  const { state } = useContext(countriesContext)
+  const { setState } = useContext(countriesContext)
+
+  console.log('context', state.mode)
   useEffect(() => {
     const getData = async () => {
       try {

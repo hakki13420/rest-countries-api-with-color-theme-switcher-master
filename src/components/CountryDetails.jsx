@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
+import { countriesContext } from '../context/countriesContext'
 
 const CountryDetails = () => {
   const country = useLocation().state
+  const { state } = useContext(countriesContext)
+  const { setState } = useContext(countriesContext)
 
   const back = () => {
     history.back()
@@ -10,7 +13,7 @@ const CountryDetails = () => {
 
   return (
     <div className='country-details'>
-        <button onClick={back}>{'<- back'}</button>
+        <button onClick={back}><ion-icon name="arrow-back-outline"></ion-icon>back</button>
         <div className="country">
             <div className="left">
                 <img src={country.flags.png} alt="" />
@@ -79,17 +82,16 @@ const CountryDetails = () => {
                 </div>
             </div>
             <div className="bottom">
-                <div className="borders">
-                    <span className='title'>
-                        Border Countries: {
-                        country.borders?.map(bor => (
-                            <span key={bor} className="value border-item">
-                                {bor}
-                            </span>
-                        ))
-                        }
-                    </span>
-                </div>
+                <span className='title'>
+                    Border Countries: {
+                    country.borders?.map(bor => (
+                        <span key={bor} className="value border-item">
+                            {bor}
+                        </span>
+                    ))
+                    }
+                </span>
+
             </div>
         </div>
     </div>

@@ -1,0 +1,27 @@
+
+$DarkModeElements: hsl(209, 23%, 22%);//Dark Blue
+$DarkModeBackground: hsl(207, 26%, 17%);//Very Dark Blue
+$LightModeText: hsl(200, 15%, 8%);//Very Dark Blue
+$LightModeInput: hsl(0, 0%, 52%);//Dark Gray
+$LightModeBackground: hsl(0, 0%, 98%);//Very Light Gray
+$DarkModeText_LightModeElements: hsl(0, 0%, 100%);//White
+
+
+$themes:(
+    light:(
+        ModeElements: $DarkModeText_LightModeElements,//Dark Blue
+        ModeBackground: $LightModeBackground,//Very Dark Blue
+        ModeHeaderBackground: lighten($LightModeBackground,10%),//Very Dark Blue
+        ModeShadow: darken($LightModeBackground,10%),//Very Dark Blue
+        ModeText: $LightModeText,//White
+        ModeHeaderBorder:darken($LightModeBackground,5%)
+    ),
+    dark:(
+        ModeElements: $DarkModeElements,//Dark Blue
+        ModeBackground: $DarkModeBackground,//Very Dark Blue
+        ModeHeaderBackground: lighten($DarkModeBackground,10%),//Very Dark Blue
+        ModeShadow: darken($DarkModeBackground,10%),//Very Dark Blue
+        ModeText: $DarkModeText_LightModeElements,//White
+        ModeHeaderBorder:darken($DarkModeBackground,5%)
+    )
+)

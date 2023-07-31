@@ -2,9 +2,29 @@
 .country-details{
     padding: 2rem;
     @include dflex(column, unset, unset, 2rem);
+    height: 100vh;
     color: $LightModeText;
+    @include themed {
+        background-color: themeFy("ModeBackground");
+    }
+    @include themed {
+        color: themeFy("ModeText");
+    }
     button{
-        width: 80px;
+        width: 100px;
+        padding: 7px 20px;
+        border: none;
+        @include dflex(row, unset, center, 5px);
+        @include cursorTransition(color);
+        @include themed {
+            background-color: themeFy("ModeHeaderBackground");
+        } 
+        @include themed {
+            color: themeFy("ModeText");
+        }
+        @include themed {
+            box-shadow: 2px 4px 5px themeFy("ModeShadow");
+        }
     }
     .country{
         display: grid;
@@ -18,6 +38,7 @@
         .left{
             grid-area: left;
             padding: 0 2rem;
+            height: 100%;
             img{
                 width: 100%;
             }
@@ -36,6 +57,10 @@
         }
         .bottom{
             grid-area: bottom;
+            span.title{
+                @include dflex(row, unset, center, 10px);
+                flex-wrap: wrap;                                       
+            }
         }
     }
 
@@ -44,10 +69,15 @@
 
 
 
-.border-item{
-    border: 1px solid rgb(235, 232, 232);
+.border-item{  
     padding: 0.5rem 1.5rem;
     border-radius: 5px;
     margin-left: 10px;
-    box-shadow: 2px 3px 5px rgb(222, 221, 221);
+    @include themed {
+        box-shadow: 2px 4px 5px themeFy("ModeShadow");
+    }
+    @include themed {
+        background-color: themeFy("ModeHeaderBackground");
+    }            
+    
 }
