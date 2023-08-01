@@ -2,10 +2,18 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Country = ({ country }) => {
+  const hasNativeLazyLoadSupport = 'loading' in HTMLImageElement.prototype
+  if (!hasNativeLazyLoadSupport) {
+  // no supporting lazy loading
+    console.log('no support')
+  }
   return (
     <Link className='link' to={'/country/' + country.id} state={country} >
         <div className="country">
-            <img src={country?.flags?.png || country?.flags?.svg} alt="" />
+            <img src={country?.flags?.png || country?.flags?.svg}
+                 alt=""
+                 loading='lazy'
+            />
             <div className="country-data">
                 <h1 className="country-name">
                     {country.name.common}

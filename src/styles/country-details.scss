@@ -28,25 +28,28 @@
     }
     .country{
         display: grid;
-        grid-template-columns: repeat(7,1fr);
+        grid-template-columns: repeat(auto-fit,minmax(0,1fr));
         grid-template-rows: auto auto auto;
-        grid-template-areas: 'left left left top top top top'
-                             'left left left middle middle right right'
-                             'left left left bottom bottom bottom bottom';
+        grid-template-areas: 'left left left top top top  top top top'
+                             'left left left middle middle middle right right right'
+                             'left left left bottom bottom bottom bottom bottom bottom';
         align-items: center;
+        column-gap: clamp(1rem,3vw,4rem);
+        row-gap: 1.5rem;
 
         .left{
             grid-area: left;
-            padding: 0 2rem;
+            //padding: 0 2rem;
             height: 100%;
             img{
-                width: 100%;
+               width: 100%;
+               height: 100%;
             }
         }
         .top{
             grid-area: top;
             h1{
-                font-size: 2.5rem;
+                font-size: clamp(1.5rem, 3vw, 2.5rem);
             }
         }
         .middle{
@@ -60,6 +63,29 @@
             span.title{
                 @include dflex(row, unset, center, 10px);
                 flex-wrap: wrap;                                       
+            }
+        }
+    }
+
+    @media screen and (max-width:375px) {
+        height: auto;
+        .country{
+            grid-template-columns: auto;
+            grid-template-rows: auto auto auto auto;
+            grid-template-areas: 'left'
+                                 'top'
+                                 'middle'
+                                 'right'
+                                 'bottom';
+            row-gap: 2rem;
+            .left{
+                padding: 0;
+            }
+            .middle{
+                @include dflex(column, unset, unset, 1rem);
+            }
+            .right{
+                @include dflex(column, unset, unset, 1rem);
             }
         }
     }
@@ -79,5 +105,10 @@
     @include themed {
         background-color: themeFy("ModeHeaderBackground");
     }            
+    @media screen and (max-width:375px) {
+        font-size: 2vw;
+        padding: 0.4rem 0.8rem;
+    }
     
 }
+

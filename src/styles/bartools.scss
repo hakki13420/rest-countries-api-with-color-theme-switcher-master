@@ -24,9 +24,7 @@
         @include themed {
             box-shadow: 2px 4px 5px themeFy("ModeShadow");
         }
-        @include themed {
-            color: themeFy("ModeText");
-        }
+        
 
         input{
             border: none;
@@ -40,10 +38,13 @@
                     color: themeFy("ModeText");
                 }
             }
+            @include themed {
+                color: themeFy("ModeText");
+            }
         }
     }
     .continents{
-        width: 250px;
+        //width: 250px;
         height: 45px;
         
 
@@ -69,6 +70,13 @@
             option{
                 margin-top: 20px;
             }
+        }
+    }
+
+    @media screen and (max-width:375px) {
+        @include dflex(column, unset, unset, 2rem);
+        .search{
+            min-width: 100%;
         }
     }
 }

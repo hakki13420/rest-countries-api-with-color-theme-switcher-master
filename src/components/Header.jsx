@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
-import { countriesContext } from '../context/countriesContext'
+import { themeContext } from '../context/themeContext'
 
 const Header = () => {
-  const { state } = useContext(countriesContext)
-  const { setState } = useContext(countriesContext)
+  const { state } = useContext(themeContext)
+  const { setState } = useContext(themeContext)
 
   const changeMode = () => {
     const mode = state?.mode === 'light' ? 'dark' : 'light'
     setState({
       mode
     })
+    window.localStorage.setItem('mode', mode)
   }
 
   return (

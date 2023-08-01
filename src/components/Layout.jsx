@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
-import { countriesContext } from '../context/countriesContext'
+import { themeContext } from '../context/themeContext'
 
 const Layout = ({ children }) => {
-  const { mode } = useContext(countriesContext).state
+  const { mode } = useContext(themeContext).state
 
   return (
     <div className={`layout theme-${mode}`}>

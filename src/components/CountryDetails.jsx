@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
 import { useLocation } from 'react-router-dom'
-import { countriesContext } from '../context/countriesContext'
+import { themeContext } from '../context/themeContext'
 
 const CountryDetails = () => {
   const country = useLocation().state
-  const { state } = useContext(countriesContext)
-  const { setState } = useContext(countriesContext)
+  const { state } = useContext(themeContext)
+  const { setState } = useContext(themeContext)
 
   const back = () => {
     history.back()

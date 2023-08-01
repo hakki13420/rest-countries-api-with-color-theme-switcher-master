@@ -5,21 +5,19 @@ import Header from './components/Header'
 import Layout from './components/Layout'
 import Main from './components/Main'
 import axios from 'axios'
-import { countriesContext } from './context/countriesContext'
+import { themeContext } from './context/themeContext'
 
 function App () {
   const [countries, setCountries] = useState([])
   const [search, setSearch] = useState('')
   const [continent, setContinent] = useState('')
 
-  const { state } = useContext(countriesContext)
-  const { setState } = useContext(countriesContext)
+  const { state } = useContext(themeContext)
+  const { setState } = useContext(themeContext)
 
-  console.log('context', state.mode)
   useEffect(() => {
     const getData = async () => {
       try {
-        console.log('url api ', import.meta.env.VITE_URL)
         const { data } = await axios.get(import.meta.env.VITE_URL)
         const dataSource = data.map(
           (el, index) => (
@@ -39,7 +37,6 @@ function App () {
             })
         )
         setCountries(dataSource)
-        console.log(dataSource)
       } catch (error) {
         console.log(error)
       }

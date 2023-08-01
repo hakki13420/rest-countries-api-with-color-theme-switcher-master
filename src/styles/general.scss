@@ -11,9 +11,15 @@ a{
 .title{
     font-weight: 600;    
     opacity: 0.8;
+    font-size: clamp(0.7rem, 2vw, 1rem);
 }
 .value{
     font-weight: 200;
     padding: 0 0.5rem;
     opacity: 0.6;
+}
+
+
+@media screen and (max-width:375px) {
+    
 }
