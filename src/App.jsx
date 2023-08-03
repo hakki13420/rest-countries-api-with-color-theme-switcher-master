@@ -1,19 +1,19 @@
 import { useContext, useEffect, useState } from 'react'
 import './App.css'
-import BarTools from './components/BarTools'
-import Header from './components/Header'
-import Layout from './components/Layout'
-import Main from './components/Main'
+// import Main from './components/Main'
 import axios from 'axios'
-import { themeContext } from './context/themeContext'
+import { countriesContext } from './context/countriesContext'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import CountryEdit from './pages/CountryEdit'
+import Home from './pages/Home'
+import FourAndFour from './pages/FourAndFour'
 
 function App () {
-  const [countries, setCountries] = useState([])
-  const [search, setSearch] = useState('')
-  const [continent, setContinent] = useState('')
+  // const [search, setSearch] = useState('')
+  // const [continent, setContinent] = useState('')
 
-  const { state } = useContext(themeContext)
-  const { setState } = useContext(themeContext)
+  // const { countries } = useContext(countriesContext)
+  const { setCountries } = useContext(countriesContext)
 
   useEffect(() => {
     const getData = async () => {
@@ -44,21 +44,23 @@ function App () {
     getData()
   }, [])
 
-  const searchCountries = () => {
-    return countries.filter(
-      country => country.name.common.toLowerCase().includes(search.toLowerCase()) &&
-                 (continent === '-1' || country.continents.join().includes(continent))
-    )
-  }
+  const router = createBrowserRouter([
+    {
+      path: '/',
+      element: <Home />
+    },
+    {
+      path: '/country/:id',
+      element: <CountryEdit />
+    },
+    {
+      path: '/*',
+      element: <FourAndFour />
+    }
+  ])
 
   return (
-
-      <Layout>
-        <Header/>
-        <BarTools setSearch={setSearch} setContinent={setContinent}/>
-        <Main countries={searchCountries()}/>
-      </Layout>
-
+    <RouterProvider router={router} />
   )
 }
 

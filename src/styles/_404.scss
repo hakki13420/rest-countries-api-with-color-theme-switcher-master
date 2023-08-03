@@ -1,0 +1,14 @@
+.fourandfour{
+    height: 100vh;
+    @include dflex(column, center, center, unset);
+    font-size: 3rem;
+    @include themed {
+        background-color: themeFy("ModeBackground");
+    }
+    @include themed {
+        color: themeFy("ModeText");
+    }
+    span{
+        font-size: 1rem;
+    }
+}

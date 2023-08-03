@@ -1,0 +1,45 @@
+.loading-container{
+    @include dflex(column, center, center, 1rem);
+    height: calc(100vh - 100px);
+    @include themed {
+        background-color: themeFy("ModeBackground");
+    }
+    .loading{
+        @include themed {
+            @include spiner(40px, themeFy("ModeText"), 7px);
+        }
+        animation: rotation 2s linear infinite;        
+    }
+    span{
+        text-transform: uppercase;
+        animation: blink 2s linear infinite;
+        font-size: 0.8rem;
+        @include themed {
+            color: themeFy("ModeText");
+        }
+    }
+    
+}
+
+@keyframes rotation {
+    0%{
+        transform: rotate(0degc);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+    
+}
+
+@keyframes blink {
+    0%{
+        opacity: 1;
+    }
+    50%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+    
+}

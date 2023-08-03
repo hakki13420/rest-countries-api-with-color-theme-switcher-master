@@ -12,6 +12,17 @@
     transition: $propertytransition 0.4s ease-in;
 }
 
+//spiner
+@mixin spiner($width, $borderColor, $borderWidth){
+  width: $width;
+  height: $width;
+  border-radius: 50%;
+  border: $borderWidth solid $borderColor;
+  border-left-color: transparent;
+  border-right-color: transparent;
+}
+
+
 
 //theme mixin
 @mixin themed() {

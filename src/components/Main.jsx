@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Country from './Country'
+import { countriesContext } from '../context/countriesContext'
 
-const Main = ({ countries }) => {
+const Main = () => {
+  const { searchCountries } = useContext(countriesContext)
+
   return (
     <main>
         <div className="countries">
           {
-            countries.map(country =>
+            searchCountries().map(country =>
                 <Country key={country.id} country={country}/>
             )
           }

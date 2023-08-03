@@ -1,10 +1,12 @@
-@import './variables.scss';
 @import './colors.scss';
 @import './general.scss';
 @import './mixins.scss';
 @import './layout.scss';
 
+@import './loading.scss';
+@import './404.scss';
 @import './header.scss';
 @import './bartools.scss';
 @import './main.scss';
 @import './country-details.scss';
+@import './selectBox.scss';

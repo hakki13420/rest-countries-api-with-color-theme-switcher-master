@@ -8,7 +8,7 @@ const Country = ({ country }) => {
     console.log('no support')
   }
   return (
-    <Link className='link' to={'/country/' + country.id} state={country} >
+    <Link className='link' to={'/country/' + country.name.common} state={country} >
         <div className="country">
             <img src={country?.flags?.png || country?.flags?.svg}
                  alt=""

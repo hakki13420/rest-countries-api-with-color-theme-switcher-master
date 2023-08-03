@@ -4,6 +4,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+body{
+    font-family: "Nunito Sans";
+}
 a{
     text-decoration: none;
 }
@@ -11,7 +15,7 @@ a{
 .title{
     font-weight: 600;    
     opacity: 0.8;
-    font-size: clamp(0.7rem, 2vw, 1rem);
+    font-size: clamp(0.5rem, 2vw, 1rem);
 }
 .value{
     font-weight: 200;

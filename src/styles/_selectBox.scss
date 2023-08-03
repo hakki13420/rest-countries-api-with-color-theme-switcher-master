@@ -1,0 +1,49 @@
+.selectBox{
+    
+    height: 40px;
+    position: relative;
+    .head{
+        @include dflex(row, space-between, center, 1rem);
+        padding: 10px 1.5rem;
+        border-radius: 4px;        
+        min-width: 200px;
+        @include themed {
+            background-color: themeFy("ModeElements");
+        } 
+        @include themed {
+            box-shadow: 2px 4px 5px themeFy("ModeShadow");
+        }  
+        #continent-icon{
+            cursor: pointer;
+        } 
+
+
+    }
+    .body{        
+        position: absolute;
+        content: '';
+        top: calc(100% + 10px);
+        width: 100%;
+        border-radius: 4px;
+        @include themed {
+            background-color: themeFy("ModeElements");
+        } 
+        @include themed {
+            box-shadow: 2px 4px 5px themeFy("ModeShadow");
+        }  
+        @include themed {
+            color: themeFy("ModeText");
+        } 
+
+        p{
+            padding: 0.4rem 1rem;
+            @include cursorTransition(background-color);
+            
+            &:hover{
+                
+                background-color: $LightModeInput;
+                
+            }
+        }
+    }
+}
